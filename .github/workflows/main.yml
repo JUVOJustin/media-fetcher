@@ -103,4 +103,4 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY_PEM }}
           port: 22
           script: |
-            sed -i 's/"version":[^,]*/"version": "${{ env.RELEASE_VERSION }}"/g' ${{ secrets.SSH_PRIVATE_KEY_PEM }}/details.json
+            sed -i 's/"version":[^,]*/"version": "${{ env.RELEASE_VERSION }}"/g' ${{ secrets.PATH }}/details.json
