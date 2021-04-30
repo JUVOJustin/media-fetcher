@@ -14,20 +14,17 @@ class API {
 
 	public function __construct( string $api ) {
 
-		if ( defined( 'MEDIA_FETCHER' ) ) {
+		if ( defined( 'MEDIA_FETCHER_API' ) && array_key_exists( $api, MEDIA_FETCHER_API ) ) {
 
-			if ( isset( MEDIA_FETCHER[ $api ] ) ) {
+			$api = MEDIA_FETCHER_API[ $api ];
 
-				$api = MEDIA_FETCHER[ $api ];
-
-				switch ( $api["type"] ) {
-					case "directus":
-						$this->api = new Directus( $api );
-						break;
-					case "wordpress":
-						$this->api = new WordPress( $api );
-						break;
-				}
+			switch ( $api["type"] ) {
+				case "directus":
+					$this->api = new Directus( $api );
+					break;
+				case "wordpress":
+					$this->api = new WordPress( $api );
+					break;
 			}
 
 		}
@@ -57,7 +54,7 @@ class API {
 		$requestName = "media-fetcher" . str_replace( "/", "_", parse_url( $url, PHP_URL_PATH ) );
 		$response    = get_transient( $requestName );
 
-		if ( ! $response || $response["url"] !== $url || $response["args"] !== $args || $response["type"] !== $type || ! empty( $response["response"]->getError() ) ) {
+		if ( ! $response || $response["url"] !== $url || $response["args"] !== $args || $response["type"] !== $type ) {
 
 			// Exit early on request error
 			$response = $this->api->request( $request, $url, $args );
