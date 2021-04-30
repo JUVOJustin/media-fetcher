@@ -18,7 +18,6 @@ class Testimonials extends Shortcode {
 			'col'     => '3',
 			'masonry' => '0',
 			'product' => '',
-			'limit'   => '-1',
 		];
 
 		// Add global default attributes

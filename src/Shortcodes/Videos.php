@@ -17,7 +17,6 @@ class Videos extends Shortcode {
 			'style'   => 'grid',
 			'col'     => '3',
 			'masonry' => '0',
-			'limit'   => '-1',
 		];
 
 		// Add global default attributes

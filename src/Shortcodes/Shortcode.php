@@ -15,6 +15,7 @@ class Shortcode {
 			'id'       => "",
 			'style'    => '',
 			'required' => '',
+			'limit'    => '-1',
 		);
 
 		// merge global with passed per shortcode defaults
