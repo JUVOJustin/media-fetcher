@@ -7,7 +7,7 @@
  * Author URI:      https://juvo-design.de
  * Text Domain:     media-fetcher
  * Domain Path:     /languages
- * Version:         1.1.0
+ * Version:         1.1.1
  *
  * @package         Media_Fetcher
  */
@@ -38,7 +38,7 @@ define( 'MEDIA_FETCHER_URL', plugin_dir_url( __FILE__ ) );
 /**
  * Use Composer PSR-4 Autoloading
  */
-require plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
+require MEDIA_FETCHER_PATH . 'vendor/autoload.php';
 
 /**
  * The code that runs during plugin activation.
