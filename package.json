@@ -1,0 +1,14 @@
+{
+  "name": "media-fetcher",
+  "version": "0.1.0",
+  "main": "Gruntfile.js",
+  "author": "YOUR NAME HERE",
+  "scripts": {
+    "webpack": "webpack --watch"
+  },
+  "dependencies": {
+    "bootstrap": "^4.5.3",
+    "masonry-layout": "^4.2.2",
+    "swiper": "^6.3.5"
+  }
+}

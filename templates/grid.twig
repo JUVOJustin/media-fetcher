@@ -1,0 +1,15 @@
+<div class="media-fetcher-grid {% if masonry %}media-fetcher-masonry{% endif %}">
+    {% for item in response %}
+        {% if loop.first %}
+            <div class="row"> {# open row #}
+        {% endif %}
+
+        <div class="masonry-item col-lg-{{ 12/col }} p-3 {% if loop.first %}media-fetcher-sizer{% endif %}">
+            {% block card %}
+            {% endblock %}
+        </div>
+        {% if loop.last %}
+            </div> {# close last row #}
+        {% endif %}
+    {% endfor %}
+</div>

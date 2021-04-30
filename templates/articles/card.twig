@@ -1,0 +1,36 @@
+<div class="media-card p-3 {{ classes }}">
+    {% if item.outlet.logo.private_hash %}
+        <img src="{{ base_url }}assets/{{ item.outlet.logo.private_hash }}"
+             class="outlet-logo swiper-lazy"
+             data-src="{{ base_url }}assets/{{ item.outlet.logo.private_hash }}"
+             alt="{{ item.outlet.name }}">
+    {% endif %}
+    <h3 class="article-title p-0">{% if item.url %}<a href="{{ item.url }}"
+                                                      target="_blank"
+                                                      rel="nofollow">{% endif %}{{ item.title }}{% if item.url %}</a>{% endif %}
+    </h3>
+    {% if item.excerpt %}
+        <p class="excerpt">{{ item.excerpt }}</p>
+    {% endif %}
+    <div class="row article-meta">
+        {% if item.url %}
+            <div class="col">
+                <a href="{{ item.url }}" target="_blank" rel="nofollow"
+                   class="readmore text-uppercase pt-3">{{ __('Weiterlesen', 'media-fetcher') }}
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-box-arrow-up-right"
+                         fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                              d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+                        <path fill-rule="evenodd"
+                              d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+                    </svg>
+                </a>
+            </div>
+        {% endif %}
+        {% if item.release %}
+            <div class="col-auto release-date">
+                {{ item.release|date("d.m.Y") }}
+            </div>
+        {% endif %}
+    </div>
+</div>

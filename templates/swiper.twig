@@ -1,0 +1,13 @@
+<div class="swiper" data-carousel="swiper" data-direction="vertical" data-slidesperview="auto" data-freemode="false"
+     data-loop="true" data-autoheight="true" data-centeredslides="true" data-spacebetween="30">
+    <div class="swiper-container" data-swiper="container" id="{{ id }}">
+        <div class="swiper-wrapper">
+            {% for item in response %}
+                <div class="swiper-slide">
+                    {% block card %}
+                    {% endblock %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

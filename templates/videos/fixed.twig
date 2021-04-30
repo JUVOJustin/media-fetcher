@@ -1,0 +1,15 @@
+<div class="media-fetcher-grid">
+    {% for video in response|slice(0, col) %}
+        {% if loop.first %}
+            <div class="row"> {# open row #}
+        {% endif %}
+
+        <div class="col-lg-{{ 12/col }} p-3">
+            {% include 'videos/card.twig' %}
+        </div>
+
+        {% if loop.last %}
+            </div> {# close last row #}
+        {% endif %}
+    {% endfor %}
+</div>

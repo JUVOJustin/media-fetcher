@@ -1,0 +1,16 @@
+<div class="media-card p-3 {{ classes }}">
+    {% if item.video %}
+        <div class="video-wrapper">
+            [embed]{{ item.video }}[/embed]
+        </div>
+    {% endif %}
+    <h3 class="testimonial-title p-0">NASHER-Botschafter in {{ item.place }} – {{ item.name }}</h3>
+    {% if item.message %}
+        <div class="testimonial-message">
+            {{ item.message }}
+        </div>
+    {% endif %}
+    {% if item.url %}
+        <a href="{{ item.url }}" target="_blank">Jetzt gratis testen</a>
+    {% endif %}
+</div>

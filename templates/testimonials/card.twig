@@ -1,0 +1,27 @@
+<div class="media-card p-3 {{ classes }}">
+    {% if item.video_url %}
+        <div class="video-wrapper">
+            [embed]{{ item.video_url }}[/embed]
+        </div>
+    {% endif %}
+    <h3 class="testimonial-title p-0">{{ item.name }}</h3>
+    {% if item.message %}
+        <div class="testimonial-message">
+            {{ item.message }}
+        </div>
+    {% endif %}
+    {% if item.products|length > 0 %}
+        <div class="row testimonial-meta">
+            <div class="col product-relation mt-3">
+                <h4 class="pb-0">Modulteilnehmer:</h4>
+                <ul class="pb-0">
+                    {% for product in item.products %}
+                        {% set product = product.product %}
+                        <li>{{ product.name }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+        </div>
+    {% endif %}
+</div>

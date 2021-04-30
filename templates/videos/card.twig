@@ -1,0 +1,41 @@
+<div class="media-card p-3 {{ classes }}">
+    {% if video.url %}
+        <div class="video-wrapper">
+            {% if video.thumbnail.private_hash %}
+                <div class="custom-thumb"
+                     onclick="this.style.display='none'; document.getElementById('release-container-{{ video.thumbnail.private_hash }}').style.display='block';">
+                    <div class="play-button"></div>
+                    <img src="{{ base_url }}assets/{{ video.thumbnail.private_hash }}"
+                         style="cursor:pointer"/>
+                </div>
+                <div id="release-container-{{ video.thumbnail.private_hash }}" style="display:none">
+                    [embed]{{ video.url }}[/embed]
+                </div>
+            {% else %}
+                [embed]{{ video.url }}[/embed]
+            {% endif %}
+        </div>
+    {% endif %}
+    <h3 class="video-title p-0">{{ video.title }}</h3>
+    {% if video.description %}
+        <div class="video-description">
+            {{ video.description }}
+        </div>
+    {% endif %}
+    <div class="row video-meta">
+        {% if video.release %}
+            <div class="col release-date">
+                {{ video.release|date("d.m.Y") }}
+            </div>
+        {% endif %}
+        {% if video.views %}
+            <div class="col-auto views">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                     class="bi bi-eye-fill" viewBox="0 0 16 16">
+                    <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+                    <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+                </svg> {{ video.views|number_format }}
+            </div>
+        {% endif %}
+    </div>
+</div>
