@@ -5,7 +5,9 @@ name: CI
 # Controls when the action will run. 
 on:
   push:
-
+    # Pattern matched against refs/tags
+    tags:
+      - '*'           # Push events to every tag
       
 env:
   RELEASE_VERSION: ${GITHUB_REF#refs/*/}
