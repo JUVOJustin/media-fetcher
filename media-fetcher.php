@@ -7,7 +7,7 @@
  * Author URI:      https://juvo-design.de
  * Text Domain:     media-fetcher
  * Domain Path:     /languages
- * Version:         1.0.2
+ * Version:          1.1.3
  *
  * @package         Media_Fetcher
  */
