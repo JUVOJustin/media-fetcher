@@ -8,9 +8,6 @@ on:
     # Pattern matched against refs/tags
     tags:
       - '*'           # Push events to every tag
-      
-env:
-  RELEASE_VERSION: ""
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -87,6 +84,9 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+    
+      - name: Set env
+        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
 
       - name: Install SSH key
         uses: shimataro/ssh-key-action@v2
