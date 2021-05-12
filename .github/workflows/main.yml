@@ -42,9 +42,21 @@ jobs:
       # Node Install
       - name: Node install Dependencies
         run: npm install
+        
+      # Update Version
+      - name: Update Version in WordPress Plugin root file
+        run: |
+          sed -i 's/\(\s*\)\*\(\s*\)Version:\([^,]*\)/\1*\2Version": \2"1.1.0"/g' ${{ github.event.repository.name }}.php
+
+      - name: Update resources
+        uses: test-room-7/action-update-file@v1
+        with:
+            file-path: ${{ github.event.repository.name }}.php
+            commit-msg: Update Version in Plugin Header
+            github-token: ${{ secrets.GITHUB_TOKEN }}
 
       # Zip everything
-      - shell: bash
+      - name: Zip plugin
         run: |
           cd ..
           sudo apt-get install zip
